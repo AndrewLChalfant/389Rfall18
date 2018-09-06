@@ -2,7 +2,7 @@ Writeup 1 - Ethics
 ======
 
 Name: Andrew Chalfant
-Section: *PUT YOUR SECTION NUMBER HERE*
+Section: 0201
 
 I pledge on my honor that I have not given or received any unauthorized assistance on this assignment or examniation.
 
