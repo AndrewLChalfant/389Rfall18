@@ -16,7 +16,7 @@ Digital acknowledgement of honor pledge: Andrew Chalfant
 
 2. 875 N Michigan Ave, Chicago, IL, 60611 USA. John Hancock Center
 
-3. 2018:08:22 11:33:24:801 - August 22nd, 2018
+3. 2018:08:22 11:33:24:801 - August 22nd, 2018 11:30 AM
 
 4. iPhone 8 Back Camera
 
