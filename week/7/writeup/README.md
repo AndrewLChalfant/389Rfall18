@@ -27,7 +27,7 @@ Digital acknowledgement of honor pledge: Andrew Chalfant
 
 ### Part 2 (55 pts)
 
-I started by running 'file' on the supplied binary to see what we were working with. After finding that binary was an ELF. I decided to go ahead and run it, which didn't seem to do much. I then looked for any hidden by flags by using strings, "strings binary | grep flag" and "strings binary | grep cmsc" and found nothing useful besides the output "Where is your flag?", which was a good but unhelpful question (Still not sure if this led to a flag). 
+I started by running 'file' on the supplied binary to see what we were working with. After finding that binary was an ELF. I decided to go ahead and run it, which didn't seem to do much. I then looked for any hidden by flags by using strings, "strings binary | grep flag" and "strings binary | grep cmsc" and found nothing useful besides the output 'Where is your flag?', which was a good but unhelpful question (Still not sure if this led to a flag). 
 
 I then switched to using objdump to try and see if the assembly backbone had any clues. After trying a couple different command flags, I settled for "objdump -d binary" and noticed a large section with many move commands and coordinating hex values. (0x2f, 0x74,0x6d,0x70,0x2f,0x2e,0x73,0x73,0x65,0x67,0x6f,0x0), which after being put through a hex to ascii converter game me "/temp/.stego"
 
