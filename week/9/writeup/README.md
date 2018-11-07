@@ -27,5 +27,5 @@ I surrounded that code in a loop that would iterate forever until I saw the flag
 Flag: CMSC389R-{H4sh-5l!ngInG-h@sH3r}
 
 ![Image of Yaktocat](https://i.gyazo.com/b723e232c3383a643d798a243faea0b9.png)
-![Image of Yaktocat](https://gyazo.com/5466db784749de099032051dabd0c312)
+![Image of Yaktocat](https://i.gyazo.com/5466db784749de099032051dabd0c312.png)
 
