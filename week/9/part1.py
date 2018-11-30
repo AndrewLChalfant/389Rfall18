@@ -12,4 +12,5 @@ wordlist = open("../probable-v2-top1575.txt", 'r')
 salts = string.ascii_lowercase
 
 for salt in salts:
-    # do stuff
+    for word in wordlist:
+        print(salt + word)
