@@ -17,18 +17,23 @@ After stumbling upon the flag I played with the input to recreate the flag by us
 
 ### Part 2 (60 Pts)
 1. Input "<script>alert();</script>" into search bar
+	
 	Since this was the first level, I assumed there wouldn't be any code escaping potentially malicious input. Added some basic Javascript to pull the alert up.
 
-2. Input <button onclick=alert();>Hello</button> into blog post\n
+2. Input <button onclick=alert();>Hello</button> into blog post
+	
 	At first I tried the same method from level 1, but this didn't work. I guessed that script tags were being escaped by the site but HTML was still being rendered correctly. Inserted an alert popup into a HTML button and bingo.
 
 3. Input /frame#3' onclick='alert()''; into URL
+	
 	Based on the provided source code looks like the image is being rendered directly from the URL parameter. I messed around with a few potential input syntaxs and eventually embedded another popup in the page.
 
 4. Input ');alert();(' into input
+	
 	This was one of the trickier ones for me to solve. Look at the source code again to see the URL parameter was being passed directly into the controller. Figuring out that the last closing parentheses was needed took some trial and error.
 
 5. Input ?next=javascript:alert(); into URL
+	
 	I tried the same approach from part 1 and part 2 before seeing that the email field wasn't being used after input. That left
 only URL manipulation. After looking through the source code I saw that next is reached through href. Again, I wasn't sure about the correct syntax but after doing some research saw that 'javascript:' could be used to add JS to a href.
 
