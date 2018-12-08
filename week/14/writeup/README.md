@@ -13,7 +13,7 @@ Digital acknowledgement of honor pledge: Andrew Chalfant
 ### Part 1 (40 Pts)
 After viewing the different possible products listed on the site, I noticed the url was using sql syntax to retrieve data based on a specific user id. I played around with a couple different options such as trying to escape the input for the item and execute another SQL expression. In the end I found that simply bruteforcing different possible IDs work, and I eventually guessed an item ID of 1337 to get the flag CMSC38R-{y0U-are_the-5ql-n1nja}
 
-After stumbling upon the flag I played with the input to recreate the flag by using 'or '1'='1, not sure why a capital OR wouldn't work.
+After stumbling upon the flag I played with the input to recreate the flag by using '0 or '1=1, not sure why a capital OR wouldn't work.
 
 ### Part 2 (60 Pts)
 1. Input "<script>alert();</script>" into search bar
