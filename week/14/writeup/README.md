@@ -19,7 +19,7 @@ After stumbling upon the flag I played with the input to recreate the flag by us
 1. Input "<script>alert();</script>" into search bar
 	Since this was the first level, I assumed there wouldn't be any code escaping potentially malicious input. Added some basic Javascript to pull the alert up.
 
-2. Input <button onclick=alert();>Hello</button> into blog post
+2. Input <button onclick=alert();>Hello</button> into blog post\n
 	At first I tried the same method from level 1, but this didn't work. I guessed that script tags were being escaped by the site but HTML was still being rendered correctly. Inserted an alert popup into a HTML button and bingo.
 
 3. Input /frame#3' onclick='alert()''; into URL
